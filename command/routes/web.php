@@ -3,6 +3,7 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,3 +28,12 @@ Route::get('/', function () {
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->name('dashboard');
+
+Route::resource('/categories', CategoryController::class)
+    ->names(['index' => 'category.index',
+            'create' => 'category.create',
+            'edit' => 'category.edit',
+            'update' => 'category.update',
+            'destroy' => 'category.destory',
+            'store' => 'category.store'])
+    ->middleware(['auth']);
