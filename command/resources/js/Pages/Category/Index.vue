@@ -53,7 +53,9 @@
         data() {
           return {
             form: this.$inertia.form(
+              {
               _method: "DELETE",
+              }
             ),
           };
         },

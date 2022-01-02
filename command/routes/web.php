@@ -34,6 +34,6 @@ Route::resource('/categories', CategoryController::class)
             'create' => 'category.create',
             'edit' => 'category.edit',
             'update' => 'category.update',
-            'destroy' => 'category.destory',
+            'destroy' => 'category.destroy',
             'store' => 'category.store'])
     ->middleware(['auth']);
