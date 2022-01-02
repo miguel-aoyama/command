@@ -66,9 +66,9 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+        return Inertia::render('Category/Edit', ['category' => $category]);
     }
 
     /**
@@ -78,9 +78,17 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $input = $request->all();
+
+        Validator::make($input, [
+          'title' => ['required'],
+        ])->validateWithBag('categoryUpdate');
+
+        $category->update($input);
+
+        return Redirect::route('category.index');
     }
 
     /**
