@@ -19,11 +19,16 @@
               <thead>
                 <tr>
                   <th>title</th>
+                  <th class="w-2/12">削除</th>
                 </tr>
               </thead>
               <tbody>
                 <tr v-for="category in categories" :key="category.id">
                   <td class="border px-4 py-2">{{category.title}}</td>
+                  <td class="border px-4 py-2 text-center">
+                    <jet-button class="bg-red text-base"
+                    @click.native="deleteCategory(category.id)">削除</jet-button>
+                  </td>
                 </tr>
               </tbody>
             </table>
@@ -45,5 +50,19 @@
             JetButton,
             Link,
         },
+        data() {
+          return {
+            form: this.$inertia.form(
+              _method: "DELETE",
+            ),
+          };
+        },
+        methods: {
+          deleteCategory(id) {
+            this.form.post(route("category.destroy", id), {
+              preserveScroll: true,
+            });
+          }
+        }
     })
 </script>

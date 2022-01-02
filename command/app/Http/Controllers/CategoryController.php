@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\Category;
+use Illuminate\Support\Facades\Redirect;
+use Validator;
 
 class CategoryController extends Controller
 {
@@ -36,7 +38,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = $request->all();
+
+        Validator::make($input, [
+          'title' => ['required'],
+        ])->validateWithBag('categoryCreate');
+
+        Category::create($input);
+
+        return Redirect::route('category.index');
     }
 
     /**
@@ -81,6 +91,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category->delete();
+
+        return Redirect::route('category.index');
     }
 }

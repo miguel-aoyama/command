@@ -23,6 +23,7 @@
                     class="mt-1 block w-full"
                     v-model="form.title"
                   />
+
                 </div>
               </template>
               <template #actions>
@@ -44,6 +45,7 @@
     import JetLabel from '@/Jetstream/Label'
     import JetButton from '@/Jetstream/Button'
 
+
     export default defineComponent({
         props:['locations','categories'],
         components: {
@@ -51,7 +53,7 @@
             JetFormSection,
             JetInput,
             JetLabel,
-            JetButton
+            JetButton,
         },
         data() {
           return {
@@ -62,13 +64,14 @@
               },
               {
                 bag: "CategoryCreate",
+                resetOnSuccess: false,
               }
             )
           }
         },
         methods: {
           createCategory() {
-            console.log('submitted')
+            this.form.post(route("category.store"));
           }
         }
     })

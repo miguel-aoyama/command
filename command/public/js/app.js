@@ -20683,13 +20683,14 @@ __webpack_require__.r(__webpack_exports__);
         _method: "POST",
         title: ""
       }, {
-        bag: "CategoryCreate"
+        bag: "CategoryCreate",
+        resetOnSuccess: false
       })
     };
   },
   methods: {
     createCategory: function createCategory() {
-      console.log('submitted');
+      this.form.post(route("category.store"));
     }
   }
 }));
@@ -20700,29 +20701,9 @@ __webpack_require__.r(__webpack_exports__);
 /*!***************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Category/Index.vue?vue&type=script&lang=js ***!
   \***************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ (() => {
 
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Layouts/AppLayout.vue */ "./resources/js/Layouts/AppLayout.vue");
-/* harmony import */ var _Jetstream_Button__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Jetstream/Button */ "./resources/js/Jetstream/Button.vue");
-/* harmony import */ var _Jetstream_NavLink__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Jetstream/NavLink */ "./resources/js/Jetstream/NavLink.vue");
-
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ((0,vue__WEBPACK_IMPORTED_MODULE_0__.defineComponent)({
-  props: ['locations', 'categories'],
-  components: {
-    AppLayout: _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    JetButton: _Jetstream_Button__WEBPACK_IMPORTED_MODULE_2__["default"],
-    Link: _Jetstream_NavLink__WEBPACK_IMPORTED_MODULE_3__["default"]
-  }
-}));
+throw new Error("Module build failed (from ./node_modules/babel-loader/lib/index.js):\nSyntaxError: C:\\users\\rikiya\\desktop\\command\\command\\command\\resources\\js\\Pages\\Category\\Index.vue: Unexpected token, expected \",\" (17:21)\n\n  15 |           return {\n  16 |             form: this.$inertia.form(\n> 17 |               _method: \"DELETE\",\n     |                      ^\n  18 |             ),\n  19 |           };\n  20 |         },\n    at Parser._raise (C:\\users\\rikiya\\desktop\\command\\command\\command\\node_modules\\@babel\\parser\\lib\\index.js:569:17)\n    at Parser.raiseWithData (C:\\users\\rikiya\\desktop\\command\\command\\command\\node_modules\\@babel\\parser\\lib\\index.js:562:17)\n    at Parser.raise (C:\\users\\rikiya\\desktop\\command\\command\\command\\node_modules\\@babel\\parser\\lib\\index.js:523:17)\n    at Parser.unexpected (C:\\users\\rikiya\\desktop\\command\\command\\command\\node_modules\\@babel\\parser\\lib\\index.js:3601:16)\n    at Parser.expect (C:\\users\\rikiya\\desktop\\command\\command\\command\\node_modules\\@babel\\parser\\lib\\index.js:3575:28)\n    at Parser.parseCallExpressionArguments (C:\\users\\rikiya\\desktop\\command\\command\\command\\node_modules\\@babel\\parser\\lib\\index.js:11848:14)\n    at Parser.parseCoverCallAndAsyncArrowHead (C:\\users\\rikiya\\desktop\\command\\command\\command\\node_modules\\@babel\\parser\\lib\\index.js:11771:29)\n    at Parser.parseSubscript (C:\\users\\rikiya\\desktop\\command\\command\\command\\node_modules\\@babel\\parser\\lib\\index.js:11702:19)\n    at Parser.parseSubscripts (C:\\users\\rikiya\\desktop\\command\\command\\command\\node_modules\\@babel\\parser\\lib\\index.js:11671:19)\n    at Parser.parseExprSubscripts (C:\\users\\rikiya\\desktop\\command\\command\\command\\node_modules\\@babel\\parser\\lib\\index.js:11660:17)");
 
 /***/ }),
 
@@ -24633,14 +24614,22 @@ var _hoisted_2 = {
 
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Category create ");
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "title")])], -1
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("thead", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tr", null, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", null, "title"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("th", {
+  "class": "w-2/12"
+}, "削除")])], -1
 /* HOISTED */
 );
 
 var _hoisted_5 = {
   "class": "border px-4 py-2"
 };
-function render(_ctx, _cache, $props, $setup, $data, $options) {
+var _hoisted_6 = {
+  "class": "border px-4 py-2 text-center"
+};
+
+var _hoisted_7 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)("削除");
+
+function render(_ctx, _cache) {
   var _component_jet_button = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("jet-button");
 
   var _component_Link = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("Link");
@@ -24679,7 +24668,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
           key: category.id
         }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(category.title), 1
         /* TEXT */
-        )]);
+        ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_jet_button, {
+          "class": "bg-red text-base",
+          onClick: function onClick($event) {
+            return _ctx.deleteCategory(category.id);
+          }
+        }, {
+          "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+            return [_hoisted_7];
+          }),
+          _: 2
+          /* DYNAMIC */
+
+        }, 1032
+        /* PROPS, DYNAMIC_SLOTS */
+        , ["onClick"])])]);
       }), 128
       /* KEYED_FRAGMENT */
       ))])])])])];
